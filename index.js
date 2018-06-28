@@ -7,8 +7,8 @@ module.exports = (webpackConfig) => {
       .extensions
         .merge(['.ts', '.tsx'])
 
-    const tslintRule = config.module.rule('tslint')
-    const tsRule = config.module.rule('ts')
+    const tslintRule = webpackConfig.module.rule('tslint')
+    const tsRule = webpackConfig.module.rule('ts')
 
     tslintRule
         .pre()
@@ -31,10 +31,10 @@ module.exports = (webpackConfig) => {
                 appendTsSuffixTo: [/\.vue$/]
             })
     
-    const configPath = path.resolve(__dirname, `./node_modules/cc-cli-plugin-typescript/tsconfig.json`)
+    const configPath = path.resolve(__dirname, `./tsconfig.json`)
     if (fs.existsSync(configPath)) {
         const tsconfig = fs.readFileSync(configPath, 'utf-8');
-        fs.writeFileSync('./tsconfig.json', tsconfig);
+        fs.writeFileSync(path.resolve(__dirname, `../../tsconfig.json`), tsconfig);
     }
 
 }

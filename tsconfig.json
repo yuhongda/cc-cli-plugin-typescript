@@ -13,9 +13,19 @@
       "noImplicitAny": true,
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck":true,      
       "lib": [
           "es2016",
           "dom"
       ]
-    }
-  }
+    },
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/**/*.vue"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}
